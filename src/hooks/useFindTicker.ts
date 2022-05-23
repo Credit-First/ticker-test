@@ -9,12 +9,12 @@ Decimal.set({
 });
 
 export const useFindTicker = () => {
-  const [data, setData] = useState('');
+  const [price, setPrice] = useState('');
 
   const [timestamp, setTimestamp] = useState('');
 
   return {
-    data,
+    price,
     timestamp,
     getPrice: async () => {
       try {
@@ -40,7 +40,7 @@ export const useFindTicker = () => {
         const averageValue = sumValue.dividedBy(3).toFixed(5);
 
         setTimestamp(res_bitstamp.timestamp);
-        setData(averageValue.toString());
+        setPrice(averageValue.toString());
 
         // IF any errors, set error to state
 

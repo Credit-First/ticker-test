@@ -19,15 +19,15 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'react/display-name': 'off',
     'react/jsx-curly-brace-presence': [
-      'warn',
+      'off',
       { props: 'never', children: 'never' },
     ],
 
     //#region  //*=========== Unused Import ===========
     '@typescript-eslint/no-unused-vars': 'off',
-    'unused-imports/no-unused-imports': 'warn',
+    'unused-imports/no-unused-imports': 'off',
     'unused-imports/no-unused-vars': [
-      'warn',
+      'off',
       {
         vars: 'all',
         varsIgnorePattern: '^_',
@@ -38,9 +38,9 @@ module.exports = {
     //#endregion  //*======== Unused Import ===========
 
     //#region  //*=========== Import Sort ===========
-    'simple-import-sort/exports': 'warn',
+    'simple-import-sort/exports': 'off',
     'simple-import-sort/imports': [
-      'warn',
+      'off',
       {
         groups: [
           // ext library & side effect imports
