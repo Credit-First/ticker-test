@@ -1,15 +1,34 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 
+import { GJNumberView } from '@/components/GJNumberView';
+
 import { httpGet } from '@/utils/http.util';
 import { pairProps } from '@/utils/types.util';
 
+const initialPairData = {
+  high: 0,
+  last: 0,
+  timestamp: 0,
+  bid: 0,
+  vwap: 0,
+  volume: 0,
+  low: 0,
+  ask: 0,
+  open: 0,
+};
+
 const TickerPairList = () => {
   const [selectedPair, setSelectedPair] = useState('');
+  const [pairData, setPairData] = useState(initialPairData);
   const [tickerPairList, setTickerPairList] = useState([]);
 
   const handleSelectPair = (name: string) => async () => {
     setSelectedPair(name);
+
+    const res = await httpGet(`/api/bitstamp_ticker_pair_info/${name}`);
+
+    setPairData(res);
   };
 
   useEffect(() => {
@@ -43,7 +62,9 @@ const TickerPairList = () => {
           </div>
         )}
       </div>
-      <div className='mt-12 flex min-h-[300px] w-full flex-1 items-center justify-center rounded-xl bg-zinc-800 p-2'></div>
+      <div className='mt-12 flex min-h-[300px] w-full flex-1 items-center justify-center rounded-xl bg-zinc-800 p-2'>
+        <GJNumberView pairData={pairData} />
+      </div>
     </div>
   );
 };

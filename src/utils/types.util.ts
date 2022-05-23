@@ -8,3 +8,14 @@ export interface pairProps {
   counter_decimals: string;
   description: string;
 }
+export interface pairDataProps {
+  high: number;
+  last: number;
+  timestamp: number;
+  bid: number;
+  vwap: number;
+  volume: number;
+  low: number;
+  ask: number;
+  open: number;
+}
