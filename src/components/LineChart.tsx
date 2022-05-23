@@ -12,7 +12,7 @@ function LineChart() {
   const [averageTickerValue, setAverageTickerValue] = useState<any>({
     id: 'average_price',
     color: 'hsl(70, 70%, 50%)',
-    price: [],
+    data: [],
   });
 
   useEffect(() => {
