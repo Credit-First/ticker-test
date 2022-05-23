@@ -2,10 +2,12 @@
 module.exports = {
   eslint: {
     dirs: ['src'],
+    ignoreDuringBuilds: true,
   },
-
   reactStrictMode: true,
-
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   // Uncoment to add domain whitelist
   // images: {
   //   domains: [

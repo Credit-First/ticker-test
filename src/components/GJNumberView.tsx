@@ -1,12 +1,10 @@
 import Decimal from 'decimal.js-light';
 
-import { pairDataProps } from '@/utils/types.util';
-
-export const GJNumberView = ({ pairData }: { pairData: pairDataProps }) => {
+export const GJNumberView = ({ pairData }: { pairData: any }) => {
   if (!pairData) return <div />;
   return (
     <div className='flex flex-wrap items-center justify-center'>
-      {Object.keys(pairData).map((key) => {
+      {Object.keys(pairData).map((key: string) => {
         return <GJNumberLabel key={key} label={key} value={pairData[key]} />;
       })}
     </div>
@@ -17,8 +15,8 @@ export const GJNumberLabel = ({
   label,
   value,
 }: {
-  label: string;
-  value: number;
+  label: number | string;
+  value: number | string;
 }) => {
   const fixedValue = new Decimal(value).toFixed(1);
 
